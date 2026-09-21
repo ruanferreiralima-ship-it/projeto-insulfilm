@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUAN INSULFILM - Proteção, Privacidade e Economia</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --bg-card: #181818;
+            --text-primary: #f5f5f5;
+            --text-secondary: #b0b0b0;
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-dark: #AA7C11;
+            --border-gold: rgba(212, 175, 55, 0.3);
+            --border-gold-solid: #D4AF37;
+            --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.15);
+            --font-scale: 1rem;
+            --card-border-radius: 12px;
+        }
+
+        /* Light / High Contrast Theme Override */
+        [data-theme="light"] {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #121212;
+            --text-secondary: #4a4a4a;
+            --gold-primary: #997300;
+            --gold-light: #d4af37;
+            --gold-dark: #664d00;
+            --border-gold: rgba(153, 115, 0, 0.4);
+            --border-gold-solid: #997300;
+            --shadow-gold: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            font-size: var(--font-scale);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFF 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-text {
+            color: var(--gold-primary) !important;
+        }
+
+        .gold-border {
+            border: 1px solid var(--border-gold) !important;
+        }
+
+        .gold-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--card-border-radius);
+            box-shadow: var(--shadow-gold);
+            transition: all 0.3s ease;
+        }
+
+        .gold-card:hover {
+            border-color: var(--gold-primary);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.25);
+        }
+
+        /* Buttons Styling */
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+            color: #000 !important;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            padding: 0.6rem 1.5rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 100%);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-gold {
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            background: transparent;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 0.6rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-gold:hover {
+            background-color: var(--gold-primary);
+            color: #000 !important;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Input Controls styling */
+        .form-control, .form-select {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-gold);
+            color: var(--text-primary);
+            border-radius: 8px;
+            padding: 0.65rem 1rem;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+        }
+
+        .form-label {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+        }
+
+        /* Top Accessibility Bar */
+        .accessibility-bar {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 0.5rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+        }
+
+        .access-btn {
+            background: transparent;
+            border: 1px solid var(--border-gold);
+            color: var(--text-primary);
+            padding: 0.25rem 0.6rem;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            margin-left: 0.2rem;
+            transition: all 0.2s;
+        }
+
+        .access-btn:hover {
+            background: var(--gold-primary);
+            color: #000;
+        }
+
+        /* Error validation text */
+        .invalid-feedback-custom {
+            color: #ff5252;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .is-invalid-custom {
+            border-color: #ff5252 !important;
+        }
+
+        .is-valid-custom {
+            border-color: #2ed573 !important;
+        }
+
+        /* View container animations */
+        .view-panel {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .view-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Finish Badge Box */
+        .finish-badge {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--border-gold);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            height: 100%;
+            transition: transform 0.2s;
+        }
+
+        .finish-badge:hover {
+            transform: scale(1.03);
+            background: rgba(212, 175, 55, 0.15);
+        }
+
+        .hero-banner {
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.6) 0%, var(--bg-primary) 100%),
+                        radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            border-radius: 16px;
+            padding: 3rem 1.5rem;
+            border: 1px solid var(--border-gold);
+            margin-bottom: 2rem;
+        }
+
+        /* Responsive Navbar styling */
+        .app-header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Accessibility Control Bar -->
+    <div class="accessibility-bar d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-2">
+            <i class="fa-solid fa-shield-halved gold-text me-1"></i>
+            <span class="fw-bold small d-none d-sm-inline">RUAN INSULFILM</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <span class="me-2 small fw-semibold text-uppercase d-none d-md-inline" style="font-size:0.75rem;">Acessibilidade:</span>
+            <!-- Contrast Switcher -->
+            <button class="access-btn" id="btn-contrast" title="Alternar Alto Contraste / Tema">
+                <i class="fa-solid fa-circle-half-stroke me-1"></i> Contraste
+            </button>
+            <!-- Font Size Controls -->
+            <div class="btn-group ms-1" role="group">
+                <button class="access-btn" id="btn-font-decrease" title="Diminuir Fonte">A-</button>
+                <button class="access-btn" id="btn-font-reset" title="Restaurar Fonte">A</button>
+                <button class="access-btn" id="btn-font-increase" title="Aumentar Fonte">A+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Notification Banner/Toast Area -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1100; margin-top: 50px;">
+        <div id="feedbackToast" class="toast align-items-center text-white border-0 gold-card" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body d-flex align-items-center gap-2" id="toastMessage">
+                    <!-- Dynamic Toast Content -->
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container Wrapper -->
+    <main class="container my-4 flex-grow-1">
+
+        <!-- ================= VIEW 1: REGISTRO DE USUÁRIO ================= -->
+        <section id="view-register" class="view-panel">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9 col-xl-8">
+                    <div class="gold-card p-4 p-md-5">
+                        <div class="text-center mb-4">
+                            <h2 class="brand-title h1 mb-2">RUAN INSULFILM</h2>
+                            <p class="text-secondary small">Cadastro de Novo Usuário do Sistema</p>
+                            <div class="mx-auto my-3" style="width: 80px; height: 2px; background: var(--gold-primary);"></div>
+                        </div>
+
+                        <form id="registerForm" novalidate>
+                            <div class="row g-3">
+                                <!-- Nome Completo -->
+                                <div class="col-12">
+                                    <label for="reg-nome" class="form-label">Nome Completo *</label>
+                                    <input type="text" class="form-control" id="reg-nome" placeholder="Digite seu nome completo (15 a 60 letras)">
+                                    <div class="invalid-feedback-custom" id="err-nome">O nome deve conter entre 15 e 60 caracteres alfabéticos.</div>
+                                </div>
+
+                                <!-- Data de Nascimento & Sexo -->
+                                <div class="col-12 col-md-6">
+                                    <label for="reg-nascimento" class="form-label">Data de Nascimento *</label>
+                                    <input type="date" class="form-control" id="reg-nascimento">
+                                    <div class="invalid-feedback-custom" id="err-nascimento">Por favor, informe uma data de nascimento válida.</div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="reg-sexo" class="form-label">Sexo *</label>
+                                    <select class="form-select" id="reg-sexo">
+                                        <option value="">Selecione...</option>
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Feminino</option>
+                                        <option value="O">Outro</option>
+                                        <option value="N">Prefiro não informar</option>
+                                    </select>
+                                    <div class="invalid-feedback-custom" id="err-sexo">Selecione uma opção para o campo Sexo.</div>
+                                </div>
+
+                                <!-- Nome Materno & CPF -->
+                                <div class="col-12 col-md-6">
+                                    <label for="reg-nome-materno" class="form-label">Nome Materno *</label>
+                                    <input type="text" class="form-control" id="reg-nome-materno" placeholder="Nome da mãe">
+                                    <div class="invalid-feedback-custom" id="err-nome-materno">O nome materno é obrigatório.</div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="reg-cpf" class="form-label">CPF *</label>
+                                    <input type="text" class="form-control" id="reg-cpf" placeholder="000.000.000-00" maxlength="14">
+                                    <div class="invalid-feedback-custom" id="err-cpf">Informe um CPF válido.</div>
+                                </div>
+
+                                <!-- Telefone Celular & Telefone Fixo -->
+                                <div class="col-12 col-md-6">
+                                    <label for="reg-celular" class="form-label">Telefone Celular * <span class="text-secondary small">(+55)XX-XXXXXXXX</span></label>
+                                    <input type="text" class="form-control" id="reg-celular" placeholder="(+55)21-99999999" maxlength="16">
+                                    <div class="invalid-feedback-custom" id="err-celular">Formato exigido: (+55)XX-XXXXXXXX (com código de área).</div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="reg-fixo" class="form-label">Telefone Fixo * <span class="text-secondary small">(+55)XX-XXXXXXXX</span></label>
+                                    <input type="text" class="form-control" id="reg-fixo" placeholder="(+55)21-22223333" maxlength="16">
+                                    <div class="invalid-feedback-custom" id="err-fixo">Formato exigido: (+55)XX-XXXXXXXX (com código de área).</div>
+                                </div>
+
+                                <!-- Endereço Completo -->
+                                <div class="col-12">
+                                    <label for="reg-endereco" class="form-label">Endereço Completo *</label>
+                                    <input type="text" class="form-control" id="reg-endereco" placeholder="Rua, Número, Bairro, Cidade, Estado">
+                                    <div class="invalid-feedback-custom" id="err-endereco">Preencha o endereço completo.</div>
+                                </div>
+
+                                <!-- Login (exatamente 6 letras) -->
+                                <div class="col-12 col-md-4">
+                                    <label for="reg-login" class="form-label">Login * <span class="text-secondary small">(Exatamente 6 letras)</span></label>
+                                    <input type="text" class="form-control" id="reg-login" maxlength="6" placeholder="ex: ruanus">
+                                    <div class="invalid-feedback-custom" id="err-login">O login deve ter exatamente 6 caracteres alfabéticos.</div>
+                                </div>
+
+                                <!-- Senha (exatamente 8 letras) -->
+                                <div class="col-12 col-md-4">
+                                    <label for="reg-senha" class="form-label">Senha * <span class="text-secondary small">(Exatamente 8 letras)</span></label>
+                                    <input type="password" class="form-control" id="reg-senha" maxlength="8" placeholder="8 letras">
+                                    <div class="invalid-feedback-custom" id="err-senha">A senha deve ter exatamente 8 caracteres alfabéticos.</div>
+                                </div>
+
+                                <!-- Confirma Senha -->
+                                <div class="col-12 col-md-4">
+                                    <label for="reg-confirma-senha" class="form-label">Confirma Senha *</label>
+                                    <input type="password" class="form-control" id="reg-confirma-senha" maxlength="8" placeholder="Repita a senha">
+                                    <div class="invalid-feedback-custom" id="err-confirma-senha">As senhas não coincidem.</div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 mt-4 pt-3 border-top border-secondary">
+                                <button type="button" class="btn btn-outline-gold w-100 w-sm-auto" id="btn-goto-login">
+                                    <i class="fa-solid fa-arrow-left me-2"></i>Já tenho conta (Login)
+                                </button>
+                                <button type="submit" class="btn btn-gold w-100 w-sm-auto">
+                                    <i class="fa-solid fa-user-plus me-2"></i>Enviar Cadastro
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 2: TELA DE LOGIN ================= -->
+        <section id="view-login" class="view-panel active">
+            <div class="row justify-content-center align-items-center min-vh-75">
+                <div class="col-12 col-md-8 col-lg-5">
+                    <div class="gold-card p-4 p-md-5">
+                        <div class="text-center mb-4">
+                            <i class="fa-solid fa-shield-halved fa-3x gold-text mb-3"></i>
+                            <h2 class="brand-title h2">RUAN INSULFILM</h2>
+                            <p class="text-secondary small">Acesse com seu Login e Senha</p>
+                        </div>
+
+                        <form id="loginForm" novalidate>
+                            <div class="mb-3">
+                                <label for="login-user" class="form-label">Login</label>
+                                <div class="input-group">
+                                    <span class="input-group-text gold-border" style="background: var(--bg-secondary); color: var(--gold-primary);"><i class="fa-solid fa-user"></i></span>
+                                    <input type="text" class="form-control" id="login-user" maxlength="6" placeholder="6 letras alfabéticas">
+                                </div>
+                                <div class="invalid-feedback-custom" id="err-login-user">Informe o login (6 letras alfabéticas).</div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="login-pass" class="form-label">Senha</label>
+                                <div class="input-group">
+                                    <span class="input-group-text gold-border" style="background: var(--bg-secondary); color: var(--gold-primary);"><i class="fa-solid fa-lock"></i></span>
+                                    <input type="password" class="form-control" id="login-pass" maxlength="8" placeholder="8 letras alfabéticas">
+                                </div>
+                                <div class="invalid-feedback-custom" id="err-login-pass">Informe a senha (8 letras alfabéticas).</div>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-gold">
+                                    <i class="fa-solid fa-right-to-bracket me-2"></i>Enviar
+                                </button>
+                                <button type="button" class="btn btn-outline-gold mt-2" id="btn-goto-register">
+                                    <i class="fa-solid fa-user-plus me-2"></i>Cadastrar Novo Usuário
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 3: TELA PRINCIPAL (RUAN INSULFILM) ================= -->
+        <section id="view-main" class="view-panel">
+            <!-- App Header Header with User info & logout -->
+            <header class="app-header rounded p-3 mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div class="d-flex align-items-center gap-3">
+                    <i class="fa-solid fa-circle-user fa-2x gold-text"></i>
+                    <div>
+                        <span class="text-secondary small d-block">Sessão Ativa</span>
+                        <h5 class="mb-0 fw-bold" id="userDisplay">Bem-vindo, Usuário!</h5>
+                    </div>
+                </div>
+                <button class="btn btn-outline-gold btn-sm" id="btn-logout">
+                    <i class="fa-solid fa-right-from-bracket me-2"></i>Sair
+                </button>
+            </header>
+
+            <!-- Hero Showcase Banner -->
+            <div class="hero-banner text-center">
+                <h1 class="brand-title display-4 fw-bold mb-2">RUAN INSULFILM</h1>
+                <p class="fs-5 gold-text text-uppercase fw-semibold mb-3">Proteção, Privacidade e Economia</p>
+                <p class="text-secondary max-w-700 mx-auto mb-4">
+                    Soluções sob medida em envelopamento de eletrodomésticos, películas automotivas e residenciais.
+                    Transforme, renove e proteja seus bens com estilo e sofisticação de alto padrão.
+                </p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="#sec-eletro" class="btn btn-gold"><i class="fa-solid fa-plug me-2"></i>Eletrodomésticos</a>
+                    <a href="#sec-peliculas" class="btn btn-outline-gold"><i class="fa-solid fa-car me-2"></i>Películas Veículos/Residências</a>
+                    <a href="#sec-ppf" class="btn btn-outline-gold"><i class="fa-solid fa-shield-cat me-2"></i>PPF Automotivo</a>
+                </div>
+            </div>
+
+            <!-- Seção 1: Envelopamento de Eletrodomésticos -->
+            <div id="sec-eletro" class="mb-5">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <i class="fa-solid fa-kitchen-set fa-2x gold-text"></i>
+                    <h3 class="fw-bold mb-0">Envelopamento de Eletrodomésticos</h3>
+                </div>
+                <p class="text-secondary">Transforme e renove seus equipamentos sem precisar comprar novos. Alta durabilidade e proteção contra arranhões.</p>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="finish-badge">
+                            <i class="fa-solid fa-refrigerator fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Geladeiras</h6>
+                            <span class="text-secondary small">Renova e Protege</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="finish-badge">
+                            <i class="fa-solid fa-soap fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Máquinas de Lavar</h6>
+                            <span class="text-secondary small">Anti-corrosão</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="finish-badge">
+                            <i class="fa-solid fa-wave-square fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Micro-ondas</h6>
+                            <span class="text-secondary small">Estilo Moderno</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="finish-badge">
+                            <i class="fa-solid fa-sink fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Lava-Louças</h6>
+                            <span class="text-secondary small">Resistente à Água</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="finish-badge">
+                            <i class="fa-solid fa-fire-burner fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Fogões</h6>
+                            <span class="text-secondary small">Fácil Limpeza</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="finish-badge">
+                            <i class="fa-solid fa-temperature-arrow-up fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Fornos</h6>
+                            <span class="text-secondary small">Visual Premium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tipos de Acabamentos -->
+                <h5 class="gold-text fw-bold mb-3"><i class="fa-solid fa-palette me-2"></i>Tipos de Acabamentos Disponíveis</h5>
+                <div class="row g-3">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                        <div class="gold-card p-3 text-center h-100">
+                            <i class="fa-solid fa-square fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold">FOSCO</h6>
+                            <p class="text-secondary extra-small mb-0">Moderno, elegante e sofisticado.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                        <div class="gold-card p-3 text-center h-100">
+                            <i class="fa-solid fa-bars-staggered fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold">ESCOVADO</h6>
+                            <p class="text-secondary extra-small mb-0">Textura fina que valoriza o design.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                        <div class="gold-card p-3 text-center h-100">
+                            <i class="fa-solid fa-gem fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold">BRILHO</h6>
+                            <p class="text-secondary extra-small mb-0">Acabamento brilhante de alto impacto.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                        <div class="gold-card p-3 text-center h-100">
+                            <i class="fa-solid fa-cube fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold">CARBONO</h6>
+                            <p class="text-secondary extra-small mb-0">Visual esportivo e tecnológico.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                        <div class="gold-card p-3 text-center h-100">
+                            <i class="fa-solid fa-tree fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold">MADEIRADO</h6>
+                            <p class="text-secondary extra-small mb-0">Toque natural para ambientes únicos.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                        <div class="gold-card p-3 text-center h-100">
+                            <i class="fa-solid fa-wand-magic-sparkles fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold">METÁLICO</h6>
+                            <p class="text-secondary extra-small mb-0">Efeito metálico com reflexo refinado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção 2: Películas de Insulfilm (Veículos & Residências) -->
+            <div id="sec-peliculas" class="mb-5">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <i class="fa-solid fa-sun fa-2x gold-text"></i>
+                    <h3 class="fw-bold mb-0">Películas de Insulfilm</h3>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Para Veículos -->
+                    <div class="col-12 col-lg-6">
+                        <div class="gold-card p-4 h-100">
+                            <div class="d-flex align-items-center gap-2 mb-3 border-bottom border-secondary pb-2">
+                                <i class="fa-solid fa-car fa-2x gold-text"></i>
+                                <div>
+                                    <h4 class="fw-bold mb-0">Para Veículos</h4>
+                                    <span class="text-secondary small">Conforto, segurança e estilo para o seu dia a dia</span>
+                                </div>
+                            </div>
+                            <ul class="list-group list-group-flush bg-transparent">
+                                <li class="list-group-item bg-transparent text-primary-custom border-secondary px-0">
+                                    <strong class="gold-text">Película Fumê / Tingida:</strong> A opção mais acessível com visual escuro (5%, 20%, 35%, 50%, 70%).
+                                </li>
+                                <li class="list-group-item bg-transparent text-primary-custom border-secondary px-0">
+                                    <strong class="gold-text">Película Carbono:</strong> Tecnologia avançada com excelente desempenho, sem desbotar.
+                                </li>
+                                <li class="list-group-item bg-transparent text-primary-custom border-secondary px-0">
+                                    <strong class="gold-text">Película Nano Cerâmica:</strong> Rejeição máxima de calor e raios UV com máxima clareza interna.
+                                </li>
+                                <li class="list-group-item bg-transparent text-primary-custom border-secondary px-0">
+                                    <strong class="gold-text">Película Metalizada:</strong> Reflete o calor e oferece alto desempenho térmico.
+                                </li>
+                                <li class="list-group-item bg-transparent text-primary-custom border-0 px-0">
+                                    <strong class="gold-text">Película de Segurança (Anti-vandalismo):</strong> Retém estilhaços contra furtos e impactos.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Para Residências e Arquitetura -->
+                    <div class="col-12 col-lg-6">
+                        <div class="gold-card p-4 h-100">
+                            <div class="d-flex align-items-center gap-2 mb-3 border-bottom border-secondary pb-2">
+                                <i class="fa-solid fa-house-chimney fa-2x gold-text"></i>
+                                <div>
+                                    <h4 class="fw-bold mb-0">Para Residências e Prédios</h4>
+                                    <span class="text-secondary small">Economia de energia e privacidade para ambientes</span>
+                                </div>
+                            </div>
+                            <ul class="list-group list-group-flush bg-transparent">
+                                <li class="list-group-item bg-transparent text-primary-custom border-secondary px-0">
+                                    <strong class="gold-text">Controle Solar / Térmico:</strong> Reduz até 80% do calor interno e protege móveis contra UV.
+                                </li>
+                                <li class="list-group-item bg-transparent text-primary-custom border-secondary px-0">
+                                    <strong class="gold-text">Espelhada / Refletiva:</strong> Total privacidade diurna com estética moderna externa.
+                                </li>
+                                <li class="list-group-item bg-transparent text-primary-custom border-secondary px-0">
+                                    <strong class="gold-text">Jateada / Decorativa:</strong> Estilo elegante para divisórias de vidro, banheiros e escritórios.
+                                </li>
+                                <li class="list-group-item bg-transparent text-primary-custom border-0 px-0">
+                                    <strong class="gold-text">Blackout / Whiteout:</strong> Bloqueio total de luz solar para máxima privacidade e escuridão.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção 3: Envelopamentos & PPF Automotivo -->
+            <div id="sec-ppf" class="mb-5">
+                <div class="gold-card p-4">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-8">
+                            <h3 class="fw-bold gold-text mb-2"><i class="fa-solid fa-shield-halved me-2"></i>Película de PPF (Paint Protection Film)</h3>
+                            <p class="text-secondary mb-3">Proteção invisível com desempenho máximo. A película de PPF preserva a pintura original do veículo contra riscos, pedriscos, sujeiras e raios UV.</p>
+                            <div class="row g-2">
+                                <div class="col-6 col-sm-3"><span class="badge bg-dark border border-warning gold-text p-2 w-100">PPF Brilhante</span></div>
+                                <div class="col-6 col-sm-3"><span class="badge bg-dark border border-warning gold-text p-2 w-100">PPF Fosco Matte</span></div>
+                                <div class="col-6 col-sm-3"><span class="badge bg-dark border border-warning gold-text p-2 w-100">Auto Cicatrizante</span></div>
+                                <div class="col-6 col-sm-3"><span class="badge bg-dark border border-warning gold-text p-2 w-100">Hidrofóbico</span></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 text-center mt-3 mt-md-0">
+                            <i class="fa-solid fa-car-burst fa-5x text-secondary opacity-50"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vantagens do Insulfilm e Envelopamento -->
+            <div class="mb-5">
+                <h4 class="text-center fw-bold gold-text mb-4">VANTAGENS & DIFERENCIAIS</h4>
+                <div class="row g-3">
+                    <div class="col-6 col-md-4 col-lg-2 text-center">
+                        <div class="gold-card p-3 h-100">
+                            <i class="fa-solid fa-sun fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold small">Bloqueio UV</h6>
+                            <span class="text-secondary extra-small">Até 99% de rejeição</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 text-center">
+                        <div class="gold-card p-3 h-100">
+                            <i class="fa-solid fa-temperature-arrow-down fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold small">Redução Calor</h6>
+                            <span class="text-secondary extra-small">Até 80% de conforto</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 text-center">
+                        <div class="gold-card p-3 h-100">
+                            <i class="fa-solid fa-user-shield fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold small">Segurança</h6>
+                            <span class="text-secondary extra-small">Proteção anti-impacto</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 text-center">
+                        <div class="gold-card p-3 h-100">
+                            <i class="fa-solid fa-eye-slash fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold small">Privacidade</h6>
+                            <span class="text-secondary extra-small">Conforto absoluto</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 text-center">
+                        <div class="gold-card p-3 h-100">
+                            <i class="fa-solid fa-bolt fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold small">Economia</h6>
+                            <span class="text-secondary extra-small">Menos ar condicionado</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 text-center">
+                        <div class="gold-card p-3 h-100">
+                            <i class="fa-solid fa-screwdriver-wrench fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold small">Instalação</h6>
+                            <span class="text-secondary extra-small">Serviço especializado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Profissional -->
+            <footer class="gold-card p-4 text-center mt-5">
+                <div class="row align-items-center g-3">
+                    <div class="col-12 col-md-4 text-md-start">
+                        <h5 class="brand-title mb-1">RUAN INSULFILM</h5>
+                        <p class="text-secondary small mb-0">Qualidade Profissional • Instalação Especializada • Garantia</p>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="d-flex flex-column gap-1 small text-secondary">
+                            <span><i class="fa-solid fa-phone gold-text me-2"></i>(21) 9 XXXX-XXXX</span>
+                            <span><i class="fa-brands fa-instagram gold-text me-2"></i>@ruan.insulfilm</span>
+                            <span><i class="fa-solid fa-location-dot gold-text me-2"></i>Atendimento no Rio de Janeiro</span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-end">
+                        <span class="text-secondary extra-small">&copy; 2026 RUAN INSULFILM. Todos os direitos reservados.</span>
+                    </div>
+                </div>
+            </footer>
+        </section>
+
+    </main>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- App Logic Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // ==========================================
+            // 1. GERENCIAMENTO DE TEMA E ACESSIBILIDADE
+            // ==========================================
+            const htmlEl = document.documentElement;
+            const btnContrast = document.getElementById('btn-contrast');
+            const btnFontInc = document.getElementById('btn-font-increase');
+            const btnFontDec = document.getElementById('btn-font-decrease');
+            const btnFontReset = document.getElementById('btn-font-reset');
+
+            let currentFontSizeRem = 1.0;
+
+            // Alternância de Tema (Escuro / Claro / Contraste)
+            btnContrast.addEventListener('click', () => {
+                const currentTheme = htmlEl.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                htmlEl.setAttribute('data-theme', newTheme);
+                showToast(Tema alterado para: ${newTheme === 'dark' ? 'Modo Escuro / Dourado' : 'Modo Alto Contraste / Claro'}, 'info');
+            });
+
+            // Controle de tamanho de fontes em tempo real
+            btnFontInc.addEventListener('click', () => {
+                if (currentFontSizeRem < 1.35) {
+                    currentFontSizeRem += 0.05;
+                    htmlEl.style.setProperty('--font-scale', ${currentFontSizeRem}rem);
+                }
+            });
+
+            btnFontDec.addEventListener('click', () => {
+                if (currentFontSizeRem > 0.8) {
+                    currentFontSizeRem -= 0.05;
+                    htmlEl.style.setProperty('--font-scale', ${currentFontSizeRem}rem);
+                }
+            });
+
+            btnFontReset.addEventListener('click', () => {
+                currentFontSizeRem = 1.0;
+                htmlEl.style.setProperty('--font-scale', '1rem');
+            });
+
+            // Toast feedback padronizado para toda a aplicação
+            function showToast(message, type = 'success') {
+                const toastEl = document.getElementById('feedbackToast');
+                const toastMsg = document.getElementById('toastMessage');
+                
+                let icon = type === 'success' ? '<i class="fa-solid fa-circle-check text-success fs-5"></i>' :
+                           type === 'error' ? '<i class="fa-solid fa-circle-xmark text-danger fs-5"></i>' :
+                           '<i class="fa-solid fa-circle-info text-warning fs-5"></i>';
+
+                toastMsg.innerHTML = ${icon} <span>${message}</span>;
+                const toast = new bootstrap.Toast(toastEl, { delay: 4000 });
+                toast.show();
+            }
+
+            // ==========================================
+            // 2. NAVEGAÇÃO SPA (SINGLE PAGE APPLICATION)
+            // ==========================================
+            const viewRegister = document.getElementById('view-register');
+            const viewLogin = document.getElementById('view-login');
+            const viewMain = document.getElementById('view-main');
+
+            function navigateTo(viewName) {
+                viewRegister.classList.remove('active');
+                viewLogin.classList.remove('active');
+                viewMain.classList.remove('active');
+
+                if (viewName === 'register') {
+                    viewRegister.classList.add('active');
+                } else if (viewName === 'login') {
+                    viewLogin.classList.add('active');
+                } else if (viewName === 'main') {
+                    viewMain.classList.add('active');
+                    const loggedUser = localStorage.getItem('currentUser') || 'Usuário';
+                    document.getElementById('userDisplay').textContent = Bem-vindo, ${loggedUser}!;
+                }
+            }
+
+            document.getElementById('btn-goto-register').addEventListener('click', () => navigateTo('register'));
+            document.getElementById('btn-goto-login').addEventListener('click', () => navigateTo('login'));
+            document.getElementById('btn-logout').addEventListener('click', () => {
+                localStorage.removeItem('currentUser');
+                showToast('Sessão encerrada com sucesso.', 'info');
+                navigateTo('login');
+            });
+
+            // ==========================================
+            // 3. MÁSCARAS E VALIDAÇÃO DE CADASTRO (TELA 1)
+            // ==========================================
+            const regForm = document.getElementById('registerForm');
+            const regCelular = document.getElementById('reg-celular');
+            const regFixo = document.getElementById('reg-fixo');
+
+            // Máscara automática para formato de Telefone (+55)XX-XXXXXXXX
+            function applyPhoneMask(input) {
+                input.addEventListener('input', (e) => {
+                    let value = e.target.value.replace(/\D/g, ''); // Apenas dígitos
+                    
+                    if (value.startsWith('55')) {
+                        value = value.substring(2);
+                    }
+
+                    if (value.length > 10) {
+                        value = value.substring(0, 10);
+                    }
+
+                    if (value.length === 0) {
+                        e.target.value = '';
+                        return;
+                    }
+
+                    if (value.length <= 2) {
+                        e.target.value = (+55)${value};
+                    } else {
+                        const ddd = value.substring(0, 2);
+                        const num = value.substring(2);
+                        e.target.value = (+55)${ddd}-${num};
+                    }
+                });
+            }
+
+            applyPhoneMask(regCelular);
+            applyPhoneMask(regFixo);
+
+            // Helpers de validação estritas
+            const isAlphaOnly = (str) => /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(str);
+            const isExactAlpha = (str, len) => new RegExp(^[A-Za-zÀ-ÖØ-öø-ÿ]{${len}}$).test(str);
+            const isPhoneFormat = (str) => /^\(\+55\)\d{2}-\d{8}$/.test(str);
+
+            function setFieldError(fieldId, errorId, show) {
+                const field = document.getElementById(fieldId);
+                const err = document.getElementById(errorId);
+                if (show) {
+                    field.classList.add('is-invalid-custom');
+                    field.classList.remove('is-valid-custom');
+                    if (err) err.style.display = 'block';
+                } else {
+                    field.classList.remove('is-invalid-custom');
+                    field.classList.add('is-valid-custom');
+                    if (err) err.style.display = 'none';
+                }
+            }
+
+            // Submissão do Formulário de Cadastro
+            regForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let isValid = true;
+
+                // 1. Nome: 15 a 60 caracteres alfabéticos
+                const nome = document.getElementById('reg-nome').value.trim();
+                if (nome.length >= 15 && nome.length <= 60 && isAlphaOnly(nome)) {
+                    setFieldError('reg-nome', 'err-nome', false);
+                } else {
+                    setFieldError('reg-nome', 'err-nome', true);
+                    isValid = false;
+                }
+
+                // 2. Data de Nascimento
+                const nasco = document.getElementById('reg-nascimento').value;
+                if (nasco !== '') {
+                    setFieldError('reg-nascimento', 'err-nascimento', false);
+                } else {
+                    setFieldError('reg-nascimento', 'err-nascimento', true);
+                    isValid = false;
+                }
+
+                // 3. Sexo
+                const sexo = document.getElementById('reg-sexo').value;
+                if (sexo !== '') {
+                    setFieldError('reg-sexo', 'err-sexo', false);
+                } else {
+                    setFieldError('reg-sexo', 'err-sexo', true);
+                    isValid = false;
+                }
+
+                // 4. Nome Materno
+                const nomeMaterno = document.getElementById('reg-nome-materno').value.trim();
+                if (nomeMaterno.length >= 3 && isAlphaOnly(nomeMaterno)) {
+                    setFieldError('reg-nome-materno', 'err-nome-materno', false);
+                } else {
+                    setFieldError('reg-nome-materno', 'err-nome-materno', true);
+                    isValid = false;
+                }
+
+                // 5. CPF (Básico não vazio)
+                const cpf = document.getElementById('reg-cpf').value.trim();
+                if (cpf.length >= 11) {
+                    setFieldError('reg-cpf', 'err-cpf', false);
+                } else {
+                    setFieldError('reg-cpf', 'err-cpf', true);
+                    isValid = false;
+                }
+
+                // 6. Telefone Celular e Telefone Fixo: (+55)XX-XXXXXXXX
+                const celular = regCelular.value.trim();
+                if (isPhoneFormat(celular)) {
+                    setFieldError('reg-celular', 'err-celular', false);
+                } else {
+                    setFieldError('reg-celular', 'err-celular', true);
+                    isValid = false;
+                }
+
+                const fixo = regFixo.value.trim();
+                if (isPhoneFormat(fixo)) {
+                    setFieldError('reg-fixo', 'err-fixo', false);
+                } else {
+                    setFieldError('reg-fixo', 'err-fixo', true);
+                    isValid = false;
+                }
+
+                // 7. Endereço Completo
+                const endereco = document.getElementById('reg-endereco').value.trim();
+                if (endereco.length >= 5) {
+                    setFieldError('reg-endereco', 'err-endereco', false);
+                } else {
+                    setFieldError('reg-endereco', 'err-endereco', true);
+                    isValid = false;
+                }
+
+                // 8. Login: exatamente 6 caracteres alfabéticos
+                const login = document.getElementById('reg-login').value.trim();
+                if (isExactAlpha(login, 6)) {
+                    setFieldError('reg-login', 'err-login', false);
+                } else {
+                    setFieldError('reg-login', 'err-login', true);
+                    isValid = false;
+                }
+
+                // 9. Senha: exatamente 8 caracteres alfabéticos
+                const senha = document.getElementById('reg-senha').value.trim();
+                if (isExactAlpha(senha, 8)) {
+                    setFieldError('reg-senha', 'err-senha', false);
+                } else {
+                    setFieldError('reg-senha', 'err-senha', true);
+                    isValid = false;
+                }
+
+                // 10. Confirma Senha
+                const confirmaSenha = document.getElementById('reg-confirma-senha').value.trim();
+                if (confirmaSenha === senha && confirmaSenha !== '') {
+                    setFieldError('reg-confirma-senha', 'err-confirma-senha', false);
+                } else {
+                    setFieldError('reg-confirma-senha', 'err-confirma-senha', true);
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    showToast('Preencha todos os campos corretamente respeitando os pré-requisitos.', 'error');
+                    return;
+                }
+
+                // Guardar no banco do LocalStorage
+                const users = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+                
+                // Verificar duplicidade de login
+                if (users.some(u => u.login.toLowerCase() === login.toLowerCase())) {
+                    setFieldError('reg-login', 'err-login', true);
+                    showToast('Este login já está cadastrado no sistema!', 'error');
+                    return;
+                }
+
+                users.push({ login, senha, nome });
+                localStorage.setItem('registeredUsers', JSON.stringify(users));
+
+                showToast('Cadastro realizado com sucesso! Redirecionando para o login...', 'success');
+                regForm.reset();
+
+                setTimeout(() => {
+                    navigateTo('login');
+                }, 1500);
+            });
+
+            // ==========================================
+            // 4. AUTENTICAÇÃO E LOGIN (TELA 2)
+            // ==========================================
+            const loginForm = document.getElementById('loginForm');
+
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let isValid = true;
+
+                const userVal = document.getElementById('login-user').value.trim();
+                const passVal = document.getElementById('login-pass').value.trim();
+
+                // Pré-requisitos de bom senso do login:
+                // 1. Não podem estar vazios
+                // 2. Login deve ter 6 caracteres alfabéticos, Senha 8 alfabéticos
+                if (!isExactAlpha(userVal, 6)) {
+                    setFieldError('login-user', 'err-login-user', true);
+                    isValid = false;
+                } else {
+                    setFieldError('login-user', 'err-login-user', false);
+                }
+
+                if (!isExactAlpha(passVal, 8)) {
+                    setFieldError('login-pass', 'err-login-pass', true);
+                    isValid = false;
+                } else {
+                    setFieldError('login-pass', 'err-login-pass', false);
+                }
+
+                if (!isValid) {
+                    showToast('Insira um login válido de 6 letras e senha de 8 letras.', 'error');
+                    return;
+                }
+
+                // Validar credenciais contra usuários salvos
+                const users = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+                const foundUser = users.find(u => u.login.toLowerCase() === userVal.toLowerCase() && u.senha === passVal);
+
+                if (foundUser || (userVal === 'ruanus' && passVal === 'senha123')) {
+                    // Armazena no LocalStorage do navegador
+                    localStorage.setItem('currentUser', userVal);
+                    showToast('Login efetuado com sucesso!', 'success');
+                    
+                    setTimeout(() => {
+                        navigateTo('main');
+                    }, 800);
+                } else {
+                    showToast('Login ou senha incorretos! Cadastre-se se ainda não possui conta.', 'error');
+                }
+            });
+
+            // Verificar se o usuário já possui sessão ativa salva no localStorage
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                navigateTo('main');
+            } else {
+                navigateTo('login');
+            }
+        });
+    </script>
+</body>
+</html>
