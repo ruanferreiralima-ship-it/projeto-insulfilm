@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUAN FILM - Envelopamento, PPF e Películas de Alto Padrão</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #181818;
+            --bg-glass: rgba(26, 26, 26, 0.85);
+            --text-primary: #f5f5f5;
+            --text-secondary: #b0b0b0;
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-dark: #AA7C11;
+            --border-gold: rgba(212, 175, 55, 0.35);
+            --border-gold-solid: #D4AF37;
+            --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.15);
+            --font-scale: 1rem;
+            --card-border-radius: 14px;
+        }
+
+        /* Light / High Contrast Theme Overrides */
+        [data-theme="light"] {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-glass: rgba(255, 255, 255, 0.95);
+            --text-primary: #111111;
+            --text-secondary: #4a4a4a;
+            --gold-primary: #8a6800;
+            --gold-light: #b38800;
+            --gold-dark: #5c4500;
+            --border-gold: rgba(138, 104, 0, 0.5);
+            --border-gold-solid: #8a6800;
+            --shadow-gold: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            font-size: var(--font-scale);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Typography & Brand Headers */
+        .brand-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFF 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-text {
+            color: var(--gold-primary) !important;
+        }
+
+        .gold-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--card-border-radius);
+            box-shadow: var(--shadow-gold);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .gold-card:hover {
+            border-color: var(--gold-primary);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.22);
+            transform: translateY(-2px);
+        }
+
+        /* Luxury Buttons */
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+            color: #000 !important;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            padding: 0.65rem 1.6rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 100%);
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-gold {
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary) !important;
+            background: transparent;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 0.65rem 1.6rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-gold:hover {
+            background-color: var(--gold-primary);
+            color: #000 !important;
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.35);
+        }
+
+        /* Form Controls */
+        .form-control, .form-select {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-gold);
+            color: var(--text-primary);
+            border-radius: 8px;
+            padding: 0.7rem 1rem;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+
+        .form-label {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        /* Accessibility Bar */
+        .accessibility-bar {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 0.5rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1040;
+        }
+
+        .access-btn {
+            background: transparent;
+            border: 1px solid var(--border-gold);
+            color: var(--text-primary);
+            padding: 0.25rem 0.65rem;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .access-btn:hover {
+            background: var(--gold-primary);
+            color: #000;
+        }
+
+        /* Navbar */
+        .app-navbar {
+            background-color: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-gold);
+            position: sticky;
+            top: 41px;
+            z-index: 1030;
+        }
+
+        .nav-link-custom {
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 0.5rem 0.9rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-link-custom:hover, .nav-link-custom.active {
+            color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Validation Feedback */
+        .invalid-feedback-custom {
+            color: #ff5252;
+            font-size: 0.82rem;
+            margin-top: 0.3rem;
+            display: none;
+            font-weight: 500;
+        }
+
+        .is-invalid-custom {
+            border-color: #ff5252 !important;
+            box-shadow: 0 0 5px rgba(255, 82, 82, 0.4) !important;
+        }
+
+        .is-valid-custom {
+            border-color: #2ed573 !important;
+        }
+
+        /* View Panel Transitions */
+        .view-panel {
+            display: none;
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .view-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Badges & Finish Boxes */
+        .finish-card {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .finish-card:hover {
+            transform: scale(1.03);
+            background: rgba(212, 175, 55, 0.12);
+            border-color: var(--gold-primary);
+        }
+
+        .hero-banner {
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.7) 0%, var(--bg-primary) 100%),
+                        radial-gradient(circle at center, rgba(212, 175, 55, 0.2) 0%, transparent 75%);
+            border-radius: 20px;
+            padding: 3.5rem 1.5rem;
+            border: 1px solid var(--border-gold);
+            margin-bottom: 2.5rem;
+        }
+
+        .extra-small {
+            font-size: 0.78rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho da página-->
+    <header>
+    <!-- Acessibilidade -->
+    <div class="accessibility-bar d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div class="d-flex align-items-center gap-3">
+            <span class="small text-secondary"><i class="fa-solid fa-phone gold-text me-1"></i>(21) 9 XXXX-XXXX</span>
+            <span class="small text-secondary d-none d-md-inline"><i class="fa-brands fa-instagram gold-text me-1"></i>@ruan.film</span>
+            <span class="small text-secondary d-none d-lg-inline"><i class="fa-solid fa-location-dot gold-text me-1"></i>Atendimento no Rio de Janeiro</span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <button class="access-btn" id="btn-contrast"><i class="fa-solid fa-circle-half-stroke me-1"></i> Contraste</button>
+            <div class="btn-group" role="group">
+                <button class="access-btn" id="btn-font-decrease">A-</button>
+                <button class="access-btn" id="btn-font-reset">A</button>
+                <button class="access-btn" id="btn-font-increase">A+</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navegação Navbar -->
+    <nav class="navbar navbar-expand-lg app-navbar px-3 px-lg-4">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#" id="brand-link">
+                <i class="fa-solid fa-shield-halved fa-lg gold-text"></i>
+                <div class="d-flex flex-column">
+                    <span class="brand-title h5 mb-0">RUAN FILM</span>
+                    <span class="text-secondary extra-small fw-semibold">Proteção, Privacidade e Economia</span>
+                </div>
+            </a>
+
+            <button class="navbar-toggler border-gold" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <i class="fa-solid fa-bars gold-text"></i>
+            </button>
+
+            <div class="collapse navbar-collapse mt-3 mt-lg-0" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1 ms-lg-3">
+                    <li class="nav-item"><span class="nav-link-custom active" id="nav-home"><i class="fa-solid fa-house me-1"></i>Início</span></li>
+                    <li class="nav-item"><span class="nav-link-custom" id="nav-eletro"><i class="fa-solid fa-plug me-1"></i>Eletrodomésticos</span></li>
+                    <li class="nav-item"><span class="nav-link-custom" id="nav-peliculas"><i class="fa-solid fa-sun me-1"></i>Películas</span></li>
+                    <li class="nav-item"><span class="nav-link-custom" id="nav-ppf"><i class="fa-solid fa-shield-cat me-1"></i>PPF e Envelopamento Veicular</span></li>
+                    <li class="nav-item"><span class="nav-link-custom gold-text fw-bold" id="nav-dashboard"><i class="fa-solid fa-calculator me-1"></i>Calculadora</span></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-2" id="nav-auth-area">
+                    <button class="btn btn-outline-gold btn-sm" id="nav-btn-login"><i class="fa-solid fa-right-to-bracket me-1"></i>Login</button>
+                    <button class="btn btn-gold btn-sm" id="nav-btn-register"><i class="fa-solid fa-user-plus me-1"></i>Cadastro</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+    <!-- Main Container -->
+    <main class="container my-4 flex-grow-1">
+
+        <section id="view-home" class="view-panel active">
+            <!-- Hero Banner -->
+            <div class="hero-banner text-center">
+                <h1 class="brand-title display-4 fw-bold mb-2">RUAN FILM</h1>
+                <p class="fs-5 gold-text text-uppercase fw-bold mb-3">ENVELOPAMENTO DE ELETRODOMÉSTICOS & PELÍCULAS DE ALTO PADRÃO</p>
+                <p class="text-secondary max-w-700 mx-auto mb-4">
+                    Transforme, renove e proteja seus equipamentos, móveis e veículos com tecnologia de ponta, sofisticação e máxima durabilidade.
+                </p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <button class="btn btn-gold" id="hero-btn-calc"><i class="fa-solid fa-calculator me-2"></i>Simular Orçamento</button>
+                    <button class="btn btn-outline-gold" id="hero-btn-cad"><i class="fa-solid fa-user-plus me-2"></i>Cadastrar no Sistema</button>
+                </div>
+            </div>
+
+            <!-- SEÇÃO 1: ENVELOPAMENTO DE ELETRODOMÉSTICOS -->
+            <div class="mb-5" id="sec-eletro">
+                <div class="d-flex align-items-center justify-content-between mb-3 border-bottom border-secondary pb-2">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-kitchen-set fa-2x gold-text"></i>
+                        <div>
+                            <h3 class="fw-bold mb-0">Envelopamento de Eletrodomésticos</h3>
+                            <span class="text-secondary small">Renove o visual sem gastar com aparelhos novos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destaques / Benefícios Principais -->
+                <div class="row g-3 mb-4">
+                    <div class="col-12 col-md-4">
+                        <div class="gold-card p-3 d-flex align-items-center gap-3 h-100">
+                            <i class="fa-solid fa-shield-halved fa-2x gold-text"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0 gold-text">PROTEGE</h6>
+                                <p class="text-secondary extra-small mb-0">Proteção contra riscos, arranhões, manchas e corrosão.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="gold-card p-3 d-flex align-items-center gap-3 h-100">
+                            <i class="fa-solid fa-wand-magic-sparkles fa-2x gold-text"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0 gold-text">RENOVA</h6>
+                                <p class="text-secondary extra-small mb-0">Visual moderno e cara de novo sem precisar trocar de aparelho.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="gold-card p-3 d-flex align-items-center gap-3 h-100">
+                            <i class="fa-solid fa-piggy-bank fa-2x gold-text"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0 gold-text">ECONOMIZA</h6>
+                                <p class="text-secondary extra-small mb-0">Muito mais econômico do que a compra de um novo produto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipamentos Atendidos -->
+                <h5 class="gold-text fw-bold mb-3"><i class="fa-solid fa-check-double me-2"></i>Eletrodomésticos que Podem ser Envelopados</h5>
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="gold-card p-3 text-center h-100">
+                            <i class="fa-solid fa-refrigerator fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Geladeiras</h6>
+                            <span class="text-secondary extra-small">Inox, coloridas ou personalizadas</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="gold-card p-3 text-center h-100">
+                            <i class="fa-solid fa-soap fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Máquinas de Lavar</h6>
+                            <span class="text-secondary extra-small">Anti-corrosão e proteção contra umidade</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="gold-card p-3 text-center h-100">
+                            <i class="fa-solid fa-wave-square fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Micro-ondas</h6>
+                            <span class="text-secondary extra-small">Acabamento refinado e moderno</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="gold-card p-3 text-center h-100">
+                            <i class="fa-solid fa-sink fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Lava-Louças</h6>
+                            <span class="text-secondary extra-small">Alta resistência à água</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="gold-card p-3 text-center h-100">
+                            <i class="fa-solid fa-fire-burner fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Fogões</h6>
+                            <span class="text-secondary extra-small">Fácil higienização</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="gold-card p-3 text-center h-100">
+                            <i class="fa-solid fa-temperature-arrow-up fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Fornos</h6>
+                            <span class="text-secondary extra-small">Resistência e sofisticação</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tipos de Acabamento -->
+                <h5 class="gold-text fw-bold mb-3"><i class="fa-solid fa-swatchbook me-2"></i>Especificação dos Acabamentos Disponíveis</h5>
+                <div class="row g-3">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="gold-card p-3">
+                            <h6 class="fw-bold gold-text mb-1"><i class="fa-solid fa-square me-2"></i>FOSCO</h6>
+                            <p class="text-secondary small mb-0">Visual moderno, elegante e sem brilho reflexivo. Disfarça pequenas imperfeições e é de fácil manutenção.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="gold-card p-3">
+                            <h6 class="fw-bold gold-text mb-1"><i class="fa-solid fa-bars-staggered me-2"></i>ESCOVADO</h6>
+                            <p class="text-secondary small mb-0">Textura fina idêntica ao aço inox escovado. Traz um toque premium e valoriza o design do ambiente.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="gold-card p-3">
+                            <h6 class="fw-bold gold-text mb-1"><i class="fa-solid fa-gem me-2"></i>BRILHO</h6>
+                            <p class="text-secondary small mb-0">Acabamento brilhante de alto impacto que destaca as linhas do equipamento com efeito vitrificado.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="gold-card p-3">
+                            <h6 class="fw-bold gold-text mb-1"><i class="fa-solid fa-cube me-2"></i>CARBONO</h6>
+                            <p class="text-secondary small mb-0">Estampa com textura 3D no estilo fibra de carbono. Traz um visual altamente tecnológico e esportivo.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="gold-card p-3">
+                            <h6 class="fw-bold gold-text mb-1"><i class="fa-solid fa-tree me-2"></i>MADEIRADO</h6>
+                            <p class="text-secondary small mb-0">Textura e padrão natural de madeira para ambientes rústicos, aconchegantes ou projetos sob medida.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="gold-card p-3">
+                            <h6 class="fw-bold gold-text mb-1"><i class="fa-solid fa-wand-magic-sparkles me-2"></i>METÁLICO</h6>
+                            <p class="text-secondary small mb-0">Efeito metalizado com reflexo sofisticado e profundidade de cor incrível (ex: Gold, Inox e Bronze).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEÇÃO 2: PELÍCULAS DE INSULFILM (VEICULAR E RESIDENCIAL) -->
+            <div class="mb-5" id="sec-peliculas">
+                <div class="d-flex align-items-center justify-content-between mb-3 border-bottom border-secondary pb-2">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-sun fa-2x gold-text"></i>
+                        <div>
+                            <h3 class="fw-bold mb-0">Tipos e Especificações de Películas de Insulfilm</h3>
+                            <span class="text-secondary small">Proteção Solar, Privacidade e Economia de Energia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Para Veículos -->
+                    <div class="col-12 col-lg-6">
+                        <div class="gold-card p-4 h-100">
+                            <div class="d-flex align-items-center gap-2 mb-3 border-bottom border-secondary pb-2">
+                                <i class="fa-solid fa-car fa-2x gold-text"></i>
+                                <div>
+                                    <h4 class="fw-bold mb-0">Especificações para Veículos</h4>
+                                    <span class="text-secondary small">Conforto térmico, segurança e estilo no trânsito</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6 class="fw-bold gold-text mb-1">Película Fumê / Tingida</h6>
+                                <p class="text-secondary extra-small mb-1">A opção mais acessível para privacidade e redução de claridade solar.</p>
+                                <span class="spec-badge"><i class="fa-solid fa-eye-slash me-1"></i> Transparências: 5%, 20%, 35%, 50%, 70%</span>
+                                <span class="spec-badge"><i class="fa-solid fa-dollar-sign me-1"></i> Excelente custo-benefício</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6 class="fw-bold gold-text mb-1">Película Carbono</h6>
+                                <p class="text-secondary extra-small mb-1">Tecnologia avançada que não desbota e não fica roxa com o passar do tempo. Mantém ótima clareza visual de dentro para fora.</p>
+                                <span class="spec-badge"><i class="fa-solid fa-temperature-arrow-down me-1"></i> Alto controle térmico</span>
+                                <span class="spec-badge"><i class="fa-solid fa-shield me-1"></i> Maior Durabilidade</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6 class="fw-bold gold-text mb-1">Película Nano Cerâmica</h6>
+                                <p class="text-secondary extra-small mb-1">O que há de melhor em tecnologia. Rejeição extrema de calor mantendo total visibilidade externa e transparência.</p>
+                                <span class="spec-badge"><i class="fa-solid fa-temperature-arrow-down me-1"></i> Bloqueia até 95% do Calor</span>
+                                <span class="spec-badge"><i class="fa-solid fa-sun me-1"></i> Proteção UV de 99%</span>
+                                <span class="spec-badge"><i class="fa-solid fa-wifi me-1"></i> Não interfere no GPS/Celular</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6 class="fw-bold gold-text mb-1">Película Metalizada</h6>
+                                <p class="text-secondary extra-small mb-1">Reflete a luz solar oferecendo ótimo desempenho térmico e privacidade extra.</p>
+                                <span class="spec-badge"><i class="fa-solid fa-sun me-1"></i> Proteção UV de 99%</span>
+                                <span class="spec-badge"><i class="fa-solid fa-gem me-1"></i> Reflexão Térmica</span>
+                            </div>
+
+                            <div>
+                                <h6 class="fw-bold gold-text mb-1">Película de Segurança (Anti-vandalismo)</h6>
+                                <p class="text-secondary extra-small mb-1">Aumenta a resistência do vidro contra impactos violentos, mantendo os estilhaços presos em caso de tentativa de arrombamento ou acidente.</p>
+                                <span class="spec-badge"><i class="fa-solid fa-user-shield me-1"></i> Proteção a ocupantes</span>
+                                <span class="spec-badge"><i class="fa-solid fa-hammer me-1"></i> Resistência a impactos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Para Residências e Arquitetura -->
+                    <div class="col-12 col-lg-6">
+                        <div class="gold-card p-4 h-100">
+                            <div class="d-flex align-items-center gap-2 mb-3 border-bottom border-secondary pb-2">
+                                <i class="fa-solid fa-house-chimney fa-2x gold-text"></i>
+                                <div>
+                                    <h4 class="fw-bold mb-0">Especificações para Residências & Prédios</h4>
+                                    <span class="text-secondary small">Conforto térmico, privacidade e economia de energia</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6 class="fw-bold gold-text mb-1">Película Controle Solar</h6>
+                                <p class="text-secondary extra-small mb-1">A mais utilizada para redução de calor no ambiente. Protege estofados, pisos e móveis contra o desbotamento.</p>
+                                <span class="spec-badge"><i class="fa-solid fa-bolt me-1"></i> Economia de energia (Ar-condicionado)</span>
+                                <span class="spec-badge"><i class="fa-solid fa-sun me-1"></i> Proteção UV até 99%</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6 class="fw-bold gold-text mb-1">Película Espelhada / Refletiva</h6>
+                                <p class="text-secondary extra-small mb-1">Garante privacidade diurna total impossibilitando a visão externa de fora para dentro, além de excelente rejeição térmica.</p>
+                                <span class="spec-badge"><i class="fa-solid fa-eye-slash me-1"></i> Privacidade Diurna</span>
+                                <span class="spec-badge"><i class="fa-solid fa-building me-1"></i> Visual Moderno</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6 class="fw-bold gold-text mb-1">Película Nano Cerâmica Residencial</h6>
+                                <p class="text-secondary extra-small mb-1">Reduz imensamente o calor sem escurecer o ambiente nem alterar a estética da fachada.</p>
+                                <span class="spec-badge"><i class="fa-solid fa-lightbulb me-1"></i> Alta Luminosidade Natural</span>
+                                <span class="spec-badge"><i class="fa-solid fa-temperature-arrow-down me-1"></i> Alto Desempenho Térmico</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6 class="fw-bold gold-text mb-1">Película Jateada / Decorativa</h6>
+                                <p class="text-secondary extra-small mb-1">Ideal para escritórios, banheiros e divisórias de vidro. Proporciona elegância com total privacidade sem perder claridade.</p>
+                                <span class="spec-badge"><i class="fa-solid fa-paint-roller me-1"></i> Diversos padrões/desenhos</span>
+                            </div>
+
+                            <div>
+                                <h6 class="fw-bold gold-text mb-1">Blackout / Whiteout</h6>
+                                <p class="text-secondary extra-small mb-1">Bloqueio 100% total da luz. Ideal para estúdios, dormitórios ou ambientes que exigem escuridão completa.</p>
+                                <span class="spec-badge"><i class="fa-solid fa-moon me-1"></i> Bloqueio total de luz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEÇÃO 3: PPF & ENVELOPAMENTO AUTOMOTIVO -->
+            <div class="mb-5" id="sec-ppf">
+                <div class="d-flex align-items-center justify-content-between mb-3 border-bottom border-secondary pb-2">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-shield-cat fa-2x gold-text"></i>
+                        <div>
+                            <h3 class="fw-bold mb-0">PPF (Paint Protection Film) e Envelopamento Veicular</h3>
+                            <span class="text-secondary small">Proteção invisível de altíssima resistência e personalização automotiva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- O que é PPF -->
+                    <div class="col-12 col-lg-6">
+                        <div class="gold-card p-4 h-100">
+                            <h4 class="fw-bold gold-text mb-2"><i class="fa-solid fa-shield-halved me-2"></i>Películas de PPF (Proteção da Pintura)</h4>
+                            <p class="text-secondary small mb-3">
+                                O PPF (Paint Protection Film) é uma película transparente de poliuretano de alta resistência que protege a pintura do veículo contra impactos de pedras na estrada, arranhões, fezes de aves, sujeiras e raios UV.
+                            </p>
+
+                            <h6 class="fw-bold text-white mb-2">Tipos de PPF Disponíveis:</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2 text-secondary small">
+                                    <strong class="gold-text">• PPF Brilhante:</strong> Realça o brilho original da pintura com máxima transparência.
+                                </li>
+                                <li class="mb-2 text-secondary small">
+                                    <strong class="gold-text">• PPF Fosco (Matte):</strong> Converte a pintura brilhante original em um acabamento fosco satinado sofisticado.
+                                </li>
+                                <li class="mb-2 text-secondary small">
+                                    <strong class="gold-text">• PPF Auto-Cicatrizante (Self-Healing):</strong> Tecnologia onde pequenos riscos e arranhões somem sozinhos com a exposição ao calor do sol ou água quente.
+                                </li>
+                                <li class="mb-2 text-secondary small">
+                                    <strong class="gold-text">• PPF Hidrofóbico:</strong> Repele água e sujeira facilitando drasticamente as lavagens automotivas.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Envelopamento Automotivo -->
+                    <div class="col-12 col-lg-6">
+                        <div class="gold-card p-4 h-100">
+                            <h4 class="fw-bold gold-text mb-2"><i class="fa-solid fa-car-side me-2"></i>Tipos de Envelopamentos Automotivos</h4>
+                            <p class="text-secondary small mb-3">
+                                Estilo, personalização e proteção da pintura original mantendo a valorização do veículo.
+                            </p>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="p-2 border border-secondary rounded">
+                                        <strong class="gold-text small d-block">FOSCO</strong>
+                                        <span class="text-secondary extra-small">Visual esportivo sem brilho.</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-2 border border-secondary rounded">
+                                        <strong class="gold-text small d-block">BRILHO</strong>
+                                        <span class="text-secondary extra-small">Destaca a cor com brilho intenso.</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-2 border border-secondary rounded">
+                                        <strong class="gold-text small d-block">ACETINADO (SEMI-FOSCO)</strong>
+                                        <span class="text-secondary extra-small">Meio termo elegante e suave.</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-2 border border-secondary rounded">
+                                        <strong class="gold-text small d-block">METÁLICO</strong>
+                                        <span class="text-secondary extra-small">Profundidade com reflexo incrível.</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-2 border border-secondary rounded">
+                                        <strong class="gold-text small d-block">CROMADO</strong>
+                                        <span class="text-secondary extra-small">Máximo impacto e exclusividade.</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-2 border border-secondary rounded">
+                                        <strong class="gold-text small d-block">TEXTURIZADO</strong>
+                                        <span class="text-secondary extra-small">Toque 3D estilo Carbono/Aço.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vantagens Gerais -->
+            <div class="mb-4">
+                <h4 class="text-center fw-bold gold-text mb-4">DIFERENCIAIS RUAN INSULFILM</h4>
+                <div class="row g-3 text-center">
+                    <div class="col-6 col-md-3">
+                        <div class="gold-card p-3">
+                            <i class="fa-solid fa-award fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Qualidade Premium</h6>
+                            <span class="text-secondary extra-small">Películas de alta performance durável</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="gold-card p-3">
+                            <i class="fa-solid fa-user-gear fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Instalação Especializada</h6>
+                            <span class="text-secondary extra-small">Profissionais treinados e experientes</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="gold-card p-3">
+                            <i class="fa-solid fa-shield-check fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Garantia Comprovada</h6>
+                            <span class="text-secondary extra-small">Garantia real sobre produtos e serviço</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="gold-card p-3">
+                            <i class="fa-solid fa-headset fa-2x gold-text mb-2"></i>
+                            <h6 class="fw-bold mb-1">Atendimento Personalizado</h6>
+                            <span class="text-secondary extra-small">Soluções sob medida para você</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CALCULADORA / DASHBOARD -->
+        <section id="view-dashboard" class="view-panel">
+            <div class="gold-card p-3 mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div class="d-flex align-items-center gap-3">
+                    <i class="fa-solid fa-circle-user fa-2x gold-text"></i>
+                    <div>
+                        <span class="text-secondary extra-small fw-bold text-uppercase d-block">Sessão Ativa</span>
+                        <h5 class="mb-0 fw-bold" id="dashboard-username">Usuário Logado</h5>
+                    </div>
+                </div>
+                <button class="btn btn-outline-gold btn-sm" id="btn-dash-logout"><i class="fa-solid fa-right-from-bracket me-2"></i>Sair</button>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-12 col-lg-7">
+                    <div class="gold-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-2 mb-3 border-bottom border-secondary pb-2">
+                            <i class="fa-solid fa-calculator fa-2x gold-text"></i>
+                            <div>
+                                <h4 class="fw-bold mb-0">Simulador de Orçamento On-line</h4>
+                                <span class="text-secondary small">Calcule com base em nossas especificações técnicas</span>
+                            </div>
+                        </div>
+
+                        <form id="calcForm">
+                            <div class="row g-3 mb-3">
+                                <div class="col-12 col-md-6">
+                                    <label for="calc-category" class="form-label">Categoria do Serviço</label>
+                                    <select class="form-select" id="calc-category">
+                                        <option value="eletro">Envelopamento de Eletrodoméstico</option>
+                                        <option value="veicular">Película Veicular (Insulfilm)</option>
+                                        <option value="residencial">Película Residencial / Arquitetura</option>
+                                        <option value="ppf">Película de Proteção PPF</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="calc-type" class="form-label">Modelo / Item</label>
+                                    <select class="form-select" id="calc-type"></select>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="calc-finish" class="form-label">Especificação / Película</label>
+                                    <select class="form-select" id="calc-finish"></select>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="calc-qty" class="form-label">Quantidade / M² estimado</label>
+                                    <input type="number" class="form-control" id="calc-qty" min="1" max="50" value="1">
+                                </div>
+                            </div>
+
+                            <div class="gold-card p-3 mb-3 bg-secondary text-center">
+                                <span class="text-secondary small d-block">Valor Estimado do Serviço:</span>
+                                <span class="h2 fw-bold gold-text" id="calc-total">R$ 0,00</span>
+                                <span class="text-secondary extra-small d-block mt-1">*Valor sujeito a confirmação técnica após medição.</span>
+                            </div>
+
+                            <button type="button" class="btn btn-gold w-100" id="btn-save-quote">
+                                <i class="fa-solid fa-bookmark me-2"></i>Salvar Orçamento no Meu Painel
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-5">
+                    <div class="gold-card p-4 h-100 d-flex flex-column">
+                        <div class="d-flex align-items-center justify-content-between mb-3 border-bottom border-secondary pb-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-list-check fa-lg gold-text"></i>
+                                <h5 class="fw-bold mb-0">Meus Orçamentos</h5>
+                            </div>
+                            <button class="btn btn-sm btn-outline-gold" id="btn-clear-quotes"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+
+                        <div id="quotes-container" class="flex-grow-1 overflow-auto pe-1" style="max-height: 380px;">
+                            <p class="text-secondary small text-center my-4">Nenhum orçamento salvo ainda.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO TELA DE CADASTRO -->
+        <section id="view-register" class="view-panel">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9 col-xl-8">
+                    <div class="gold-card p-4 p-md-5">
+                        <div class="text-center mb-4">
+                            <h2 class="brand-title h1 mb-1">RUAN INSULFILM</h2>
+                            <p class="text-secondary small fw-semibold">Cadastro de Usuário no Sistema</p>
+                        </div>
+
+                        <form id="registerForm" novalidate>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label">Nome Completo *</label>
+                                    <input type="text" class="form-control" id="reg-nome" placeholder="Digite seu nome completo">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label">Data de Nascimento *</label>
+                                    <input type="date" class="form-control" id="reg-nascimento">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label">Sexo *</label>
+                                    <select class="form-select" id="reg-sexo">
+                                        <option value="">Selecione...</option>
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Feminino</option>
+                                        <option value="O">Outro</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label">Nome Materno *</label>
+                                    <input type="text" class="form-control" id="reg-nome-materno" placeholder="Nome completo da mãe">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label">CPF *</label>
+                                    <input type="text" class="form-control" id="reg-cpf" placeholder="000.000.000-00">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label">Celular * <span class="gold-text extra-small">(+55)XX-XXXXXXXX</span></label>
+                                    <input type="text" class="form-control" id="reg-celular" placeholder="(+55)21-999999999">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label">Telefone Fixo * <span class="gold-text extra-small">(+55)XX-XXXXXXXX</span></label>
+                                    <input type="text" class="form-control" id="reg-fixo" placeholder="(+55)21-22223333">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Endereço Completo *</label>
+                                    <input type="text" class="form-control" id="reg-endereco" placeholder="Rua, Número, Bairro, Cidade - Estado">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label class="form-label">Login * <span class="gold-text extra-small">(6 letras)</span></label>
+                                    <input type="text" class="form-control" id="reg-login" maxlength="6">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label class="form-label">Senha * <span class="gold-text extra-small">(8 letras)</span></label>
+                                    <input type="password" class="form-control" id="reg-senha" maxlength="8">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label class="form-label">Confirma Senha *</label>
+                                    <input type="password" class="form-control" id="reg-confirma-senha" maxlength="8">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center gap-3 mt-4 pt-3 border-top border-secondary">
+                                <button type="button" class="btn btn-outline-gold" id="btn-reg-to-login">Ir para Login</button>
+                                <button type="submit" class="btn btn-gold">Cadastrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO TELA DE LOGIN -->
+        <section id="view-login" class="view-panel">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 col-md-6 col-lg-5">
+                    <div class="gold-card p-4 p-md-5">
+                        <div class="text-center mb-4">
+                            <i class="fa-solid fa-shield-halved fa-3x gold-text mb-3"></i>
+                            <h2 class="brand-title h2">RUAN INSULFILM</h2>
+                            <p class="text-secondary small fw-semibold">Login de Acesso</p>
+                        </div>
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label class="form-label">Login</label>
+                                <input type="text" class="form-control" id="login-user" maxlength="6" placeholder="6 letras">
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="login-pass" maxlength="8" placeholder="8 letras">
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-gold">Entrar</button>
+                                <button type="button" class="btn btn-outline-gold" id="btn-login-to-register">Criar Conta</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="gold-card p-4 text-center mt-5 rounded-0 border-x-0 border-bottom-0">
+        <div class="container">
+            <div class="row align-items-center g-3">
+                <div class="col-12 col-md-4 text-md-start">
+                    <h5 class="brand-title mb-1">RUAN INSULFILM</h5>
+                    <p class="text-secondary small mb-0">Proteção, Privacidade e Economia</p>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#" class="gold-text"><i class="fa-brands fa-whatsapp fa-lg"></i></a>
+                        <a href="#" class="gold-text"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                        <a href="#" class="gold-text"><i class="fa-solid fa-envelope fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 text-md-end">
+                    <span class="text-secondary extra-small">&copy; 2026 RUAN INSULFILM - Rio de Janeiro</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Navegação SPA
+            const views = {
+                home: document.getElementById('view-home'),
+                register: document.getElementById('view-register'),
+                login: document.getElementById('view-login'),
+                dashboard: document.getElementById('view-dashboard')
+            };
+
+            function navigateTo(viewKey) {
+                Object.values(views).forEach(v => v.classList.remove('active'));
+                if (views[viewKey]) views[viewKey].classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            document.getElementById('brand-link').addEventListener('click', () => navigateTo('home'));
+            document.getElementById('nav-home').addEventListener('click', () => navigateTo('home'));
+            document.getElementById('nav-eletro').addEventListener('click', () => { navigateTo('home'); setTimeout(() => document.getElementById('sec-eletro')?.scrollIntoView({behavior: 'smooth'}), 100); });
+            document.getElementById('nav-peliculas').addEventListener('click', () => { navigateTo('home'); setTimeout(() => document.getElementById('sec-peliculas')?.scrollIntoView({behavior: 'smooth'}), 100); });
+            document.getElementById('nav-ppf').addEventListener('click', () => { navigateTo('home'); setTimeout(() => document.getElementById('sec-ppf')?.scrollIntoView({behavior: 'smooth'}), 100); });
+            document.getElementById('nav-dashboard').addEventListener('click', () => navigateTo('dashboard'));
+
+            document.getElementById('nav-btn-login').addEventListener('click', () => navigateTo('login'));
+            document.getElementById('nav-btn-register').addEventListener('click', () => navigateTo('register'));
+            document.getElementById('btn-reg-to-login').addEventListener('click', () => navigateTo('login'));
+            document.getElementById('btn-login-to-register').addEventListener('click', () => navigateTo('register'));
+            document.getElementById('hero-btn-calc').addEventListener('click', () => navigateTo('dashboard'));
+
+            // Opções Atualizadas do Simulador
+            const catalogOptions = {
+                eletro: {
+                    types: ['Geladeira', 'Máquina de Lavar', 'Micro-ondas', 'Lava-Louças', 'Fogão', 'Forno'],
+                    finishes: [
+                        { name: 'Fosco Satinado', price: 180 },
+                        { name: 'Aço Escovado Inox', price: 230 },
+                        { name: 'Brilho Vitrificado', price: 190 },
+                        { name: 'Fibra de Carbono 3D', price: 260 },
+                        { name: 'Madeirado Premium', price: 280 },
+                        { name: 'Metálico Gold/Bronze', price: 250 }
+                    ]
+                },
+                veicular: {
+                    types: ['Hatch', 'Sedan', 'SUV / Picape', 'Esportivo / Luxo'],
+                    finishes: [
+                        { name: 'Fumê / Tingida (G5, G20, G35, G70)', price: 220 },
+                        { name: 'Película Carbono (Não Desbota)', price: 450 },
+                        { name: 'Nano Cerâmica High-End (Até 95% Rejeição Calor)', price: 780 },
+                        { name: 'Metalizada Refletiva', price: 380 },
+                        { name: 'Segurança Anti-Vandalismo', price: 650 }
+                    ]
+                },
+                residencial: {
+                    types: ['Janela Padronizada', 'Porta de Vidro / Varanda', 'Divisória de Escritório', 'Fachada / Vitrine'],
+                    finishes: [
+                        { name: 'Controle Solar / Térmico UV99%', price: 120 },
+                        { name: 'Espelhada / Refletiva Diurna', price: 140 },
+                        { name: 'Nano Cerâmica Residencial Transparente', price: 220 },
+                        { name: 'Jateada / Decorativa', price: 110 },
+                        { name: 'Blackout / Whiteout Total 100%', price: 150 }
+                    ]
+                },
+                ppf: {
+                    types: ['Frente Parcial (Capô e Para-choque)', 'Frente Total (Front Clip)', 'Veículo Completo (Full Body)', 'Envelopamento Veicular Completo'],
+                    finishes: [
+                        { name: 'PPF Brilhante Auto-Cicatrizante', price: 1800 },
+                        { name: 'PPF Fosco Matte Premium', price: 2200 },
+                        { name: 'PPF Hidrofóbico Extra Shield', price: 2500 },
+                        { name: 'Envelopamento Vinil Cor Personalizada', price: 3500 }
+                    ]
+                }
+            };
+
+            const calcCategory = document.getElementById('calc-category');
+            const calcType = document.getElementById('calc-type');
+            const calcFinish = document.getElementById('calc-finish');
+            const calcQty = document.getElementById('calc-qty');
+            const calcTotal = document.getElementById('calc-total');
+
+            function populateCalcForm() {
+                const cat = calcCategory.value;
+                const data = catalogOptions[cat];
+
+                calcType.innerHTML = data.types.map(t => `<option value="${t}">${t}</option>`).join('');
+                calcFinish.innerHTML = data.finishes.map((f, idx) => `<option value="${idx}">${f.name} - R$ ${f.price}</option>`).join('');
+
+                calculatePrice();
+            }
+
+            function calculatePrice() {
+                const cat = calcCategory.value;
+                const finishIndex = parseInt(calcFinish.value) || 0;
+                const qty = parseInt(calcQty.value) || 1;
+
+                const selectedFinish = catalogOptions[cat].finishes[finishIndex];
+                const basePrice = selectedFinish ? selectedFinish.price : 0;
+                const total = basePrice * qty;
+
+                calcTotal.textContent = `R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+            }
+
+            calcCategory.addEventListener('change', populateCalcForm);
+            calcFinish.addEventListener('change', calculatePrice);
+            calcQty.addEventListener('input', calculatePrice);
+            populateCalcForm();
+        });
+    </script>
+</body>
+</html>
